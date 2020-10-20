@@ -90,7 +90,7 @@ ${res.contributors}
 ${res.tests}
 
 ## **Contact Me**
-  Any questions, please contact me at ${res.questions}
+  Any questions, please contact me at ![](https://github.com/${res.questions}
 
 This project uses **${res.license}**
 `
