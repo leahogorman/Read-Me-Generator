@@ -1,10 +1,10 @@
+// Install node dependencies
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
 
-const writeFileAsync = util.promisify(fs.writeFile);
-
+// Questions for User
 function promptUser() {
   return inquirer.prompt([
     {
@@ -56,45 +56,13 @@ function promptUser() {
   ]);
 }
 
-
-// function getLicense(license){
-//   // our path.resolve argument creates the filepath to the item that exists in the directory where the script is being run
-//   if (license[0] === "Apache"){
-//       return fs.readFileSync(path.resolve(__dirname, './Licenses/apache.txt'), { encoding: 'utf-8'})
-//   }
-//   else if (license[0] === "MIT"){
-//       return fs.readFileSync(path.resolve(__dirname, './Licenses/mit.txt'), { encoding: 'utf-8'})
-//   }
-//   else if (license[0] === "ISC"){
-//       return fs.readFileSync(path.resolve(__dirname, './Licenses/isc.txt'), { encoding: 'utf-8'})
-//   }
-//   else if (license[0] === "GNU GPL v3"){
-//       return fs.readFileSync(path.resolve(__dirname, './Licenses/gnu.txt'), { encoding: 'utf-8'})
-//   }
-//   console.log(license)
-// }
-
-// function generateLicense(license) {
-//   if(license === "Apache") {
-//     return `![](https://img.shields.io/badge/license-apache-brightgreen)`
-//   }
-//   if(license === "MIT"){
-//     return `![](https://img.shields.io/badge/license-MIT-yellow)`
-//   }
-//   if(license === "ISC"){
-//     return `![]( https://img.shields.io/badge/license-ISC-blue)`
-//   }
-//   if(license === "GNU GPL v3"){
-//     return `![](https://img.shields.io/badge/license-gnu-green)`
-//   }
-// }
-
+// generateReadMe inputs the user information into a readMe format
 function generateReadMe(res){
 
 return `
-# **${res.title}**
-
 ![](https://img.shields.io/badge/license-${res.license}-green)
+
+# **${res.title}**
 
 ## **Table of Contents** 
 
@@ -129,6 +97,7 @@ This project uses **${res.license}**
 
 }
 
+// The async function generates the readme based on the user input after they input all of their information.
 async function init() {
 
   promptUser()
